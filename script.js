@@ -11,7 +11,10 @@ buttons.forEach((button) => {
       display.textContent = "0";
     } else if (value === "=") {
       try {
-        displayValue = displayValue.replace(/×/g, "*").replace(/÷/g, "/");
+        displayValue = displayValue
+          .replace(/×/g, "*")
+          .replace(/÷/g, "/")
+          .replace(/−/g, "-");
         displayValue = eval(displayValue).toString();
         display.textContent = displayValue;
       } catch (e) {
