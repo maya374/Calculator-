@@ -5,6 +5,62 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dark Calculator</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Optional fallback dark theme */
+    body {
+      background-color: #121212;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .calculator {
+      background-color: #1e1e1e;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px #000;
+      width: 320px;
+    }
+    .display {
+      background-color: #2e2e2e;
+      color: white;
+      font-size: 2rem;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: right;
+      margin-bottom: 20px;
+      word-wrap: break-word;
+      min-height: 60px;
+    }
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    .btn {
+      background-color: #3a3a3a;
+      border: none;
+      border-radius: 50%;
+      color: white;
+      font-size: 1.5rem;
+      padding: 20px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    .btn:hover {
+      background-color: #555;
+    }
+    .special {
+      background-color: #8e44ad;
+    }
+    .equal {
+      background-color: #2e86de;
+      grid-column: span 1;
+    }
+  </style>
 </head>
 <body>
   <div class="calculator">
@@ -28,7 +84,7 @@
       <button class="btn">1</button>
       <button class="btn">2</button>
       <button class="btn">3</button>
-      <button class="btn">−</button>
+      <button class="btn">-</button> <!-- THIS is the FIX -->
 
       <button class="btn">0</button>
       <button class="btn">.</button>
@@ -37,7 +93,6 @@
     </div>
   </div>
 
-  <!-- JavaScript logic file -->
   <script src="script.js"></script>
 </body>
 </html>
