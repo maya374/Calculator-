@@ -1,98 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dark Calculator</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    /* Optional fallback dark theme */
-    body {
-      background-color: #121212;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-    .calculator {
-      background-color: #1e1e1e;
-      padding: 20px;
-      border-radius: 20px;
-      box-shadow: 0 0 20px #000;
-      width: 320px;
-    }
-    .display {
-      background-color: #2e2e2e;
-      color: white;
-      font-size: 2rem;
-      padding: 20px;
-      border-radius: 10px;
-      text-align: right;
-      margin-bottom: 20px;
-      word-wrap: break-word;
-      min-height: 60px;
-    }
-    .buttons {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-    }
-    .btn {
-      background-color: #3a3a3a;
-      border: none;
-      border-radius: 50%;
-      color: white;
-      font-size: 1.5rem;
-      padding: 20px;
-      cursor: pointer;
-      transition: background-color 0.2s;
-    }
-    .btn:hover {
-      background-color: #555;
-    }
-    .special {
-      background-color: #8e44ad;
-    }
-    .equal {
-      background-color: #2e86de;
-      grid-column: span 1;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scientific Dark Calculator</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="calculator">
-    <div class="display" id="display">0</div>
+    <input type="text" id="display" disabled value="0" />
     <div class="buttons">
-      <button class="btn special">AC</button>
-      <button class="btn">( )</button>
-      <button class="btn">%</button>
-      <button class="btn">÷</button>
+      <button onclick="clearDisplay()" class="ac">AC</button>
+      <button onclick="appendSymbol('()')">()</button>
+      <button onclick="appendSymbol('%')">%</button>
+      <button onclick="appendSymbol('/')">÷</button>
 
-      <button class="btn">7</button>
-      <button class="btn">8</button>
-      <button class="btn">9</button>
-      <button class="btn">×</button>
+      <button onclick="appendSymbol('7')">7</button>
+      <button onclick="appendSymbol('8')">8</button>
+      <button onclick="appendSymbol('9')">9</button>
+      <button onclick="appendSymbol('*')">×</button>
 
-      <button class="btn">4</button>
-      <button class="btn">5</button>
-      <button class="btn">6</button>
-      <button class="btn">+</button>
+      <button onclick="appendSymbol('4')">4</button>
+      <button onclick="appendSymbol('5')">5</button>
+      <button onclick="appendSymbol('6')">6</button>
+      <button onclick="appendSymbol('+')">+</button>
 
-      <button class="btn">1</button>
-      <button class="btn">2</button>
-      <button class="btn">3</button>
-      <button class="btn">-</button> <!-- THIS is the FIX -->
+      <button onclick="appendSymbol('1')">1</button>
+      <button onclick="appendSymbol('2')">2</button>
+      <button onclick="appendSymbol('3')">3</button>
+      <button onclick="appendSymbol('-')">−</button>
 
-      <button class="btn">0</button>
-      <button class="btn">.</button>
-      <button class="btn">⌫</button>
-      <button class="btn equal">=</button>
+      <button onclick="appendSymbol('0')">0</button>
+      <button onclick="appendSymbol('.')">.</button>
+      <button onclick="deleteLast()">⌫</button>
+      <button onclick="calculate()" class="equal">=</button>
+
+      <!-- Extra scientific functions -->
+      <button onclick="squareRoot()">√</button>
+      <button onclick="appendSymbol('Math.PI')">π</button>
+      <button onclick="appendSymbol('^')">^</button>
+      <button onclick="factorial()">!</button>
     </div>
   </div>
-
   <script src="script.js"></script>
 </body>
 </html>
